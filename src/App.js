@@ -11,8 +11,7 @@ Routes}
 from "react-router-dom";
 
 
-function App() {
-
+function App() { 
   var [mode,setMode]=useState('light');
 
   const [alert,setAlert]=useState(null);
@@ -38,20 +37,20 @@ function App() {
           document.body.style.backgroundColor='#353e43';
           document.body.style.color='white';
           showAlert("dark mode enabled","success");
-  }
-}
+      }
+    }
   return (
     <>
       <Router>
-  <Nav title="TextUtils" mode={mode} togglemode={togglemode} />
-  <Alert alert={alert} />
-  <div className="container my-3">
-    <Routes>
-      <Route path="/about" element={<About />} />
-      <Route path="/" element={<TextForm heading="Enter text to analyze" />} />
-    </Routes>
-  </div>
-</Router>
+      <Nav title="TextUtils" mode={mode} togglemode={togglemode} />
+      <Alert alert={alert} />
+      <div className="container my-3">
+        <Routes>
+          <Route path="/about" element={<About />} />
+          <Route path="/" element={<TextForm showAlert={showAlert} heading="Enter text to analyze" mode={mode} />} />
+        </Routes>
+      </div>
+    </Router>
 
     </>
   );
