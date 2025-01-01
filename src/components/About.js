@@ -5,8 +5,6 @@ export default function About(props) {
     let mystyle={
         color:props.mode==='dark'?'white':'#042743',
         backgroundColor:props.mode==='dark'?'rgba(36 74 104)':'white'
-        // border:'2px solid',
-        // borderColor:props.mode==='dark'?'white':'#042743' 
     }
   return (
     <>

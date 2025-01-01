@@ -29,6 +29,8 @@ export default function TextForm(props) {
         var text=document.getElementById('exampleFormControlTextarea1')
         text.select();
         navigator.clipboard.writeText(text.value);
+        document.getSelection().removeAllRanges();
+        props.showAlert("Copied to clipboard","Success");
     }
   return (
     <>
@@ -36,13 +38,12 @@ export default function TextForm(props) {
         <h1 style={{Color: props.mode==='dark'?'white':'black'}}>{props.heading}</h1>
         <div className="mb-3">
             <textarea className="form-control mb-3" onChange={handleonchange} style={{backgroundColor: props.mode==='dark'?'#13466e':'white',color:props.mode==='dark'?'white':'#042743'}} id="exampleFormControlTextarea1" rows="8" value={text}></textarea>
-        <button className="btn btn-primary upper" onClick={converttouppercase}>Convert to Uppercase</button>
-        <button className="btn btn-primary mx-2 my-1" onClick={converttolowercase}>Convert to lowercase</button>
-        <button className="btn btn-primary mx-2 my-1"  onClick={cleartext}>Clear Text</button>
+        <button disabled={text.length===0} className="btn btn-primary upper" onClick={converttouppercase}>Convert to Uppercase</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={converttolowercase}>Convert to lowercase</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-1"  onClick={cleartext}>Clear Text</button>
 
-        <button className="btn btn-primary mx-2 my-1"  onClick={removespace}>Remove Spaces</button>
-        <button className="btn btn-primary mx-2 my-1" onClick={copytext}>Copy Text</button>
-        {/* <button className="btn btn-primary mx-2">Convert to Uppercase</button> */}
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-1"  onClick={removespace}>Remove Spaces</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={copytext}>Copy Text</button>
         </div>
         <div className='container my-3'>
             <h1>Your text summary</h1>
@@ -50,7 +51,7 @@ export default function TextForm(props) {
                 {text.split(' ').filter((element)=>{return element.length!==0}).length} words and {text.length} characters
             </p>
             <h2>Preview</h2>
-            <p>{text.length>0?text:"Enter your text in textbox to preview it"}</p>
+            <p>{text.length>0?text:"Nothing to Preview"}</p>
         </div>
 </div>
     </>
