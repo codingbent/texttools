@@ -24,19 +24,35 @@ function App() {
         setAlert(null,null);
       }, 3000);
     }
-    var togglemode = ()=>{
-      if(mode === 'dark'){
-          setMode('light');
-          document.body.style.backgroundColor='white';
-          document.body.style.color='#212529';
-          showAlert("light mode enabled","success");
-      }
-      else if(mode === 'light'){
-          setMode('dark');
-          document.body.style.backgroundColor='#353e43';
-          document.body.style.color='white';
-          showAlert("dark mode enabled","success");
-      }
+
+    const removebodyclasses =()=>{
+      document.body.classList.remove('bg-danger');
+      document.body.classList.remove('bg-success');
+      document.body.classList.remove('bg-primary');
+      document.body.classList.remove('bg-warning');
+      document.body.classList.remove('bg-light');
+      document.body.classList.remove('bg-dark');
+    }
+    var togglemode = (cls)=>{
+        if(cls!=null){
+          removebodyclasses();
+          console.log(cls);
+          document.body.classList.add('bg-'+cls);
+        }
+        else{
+          if(mode === 'dark'){
+              setMode('light');
+              document.body.style.backgroundColor='white';
+              document.body.style.color='#212529';
+              showAlert("light mode enabled","success");
+          }
+          if(mode === 'light'){
+              setMode('dark');
+              document.body.style.backgroundColor='#353e43';
+              document.body.style.color='white';
+              showAlert("dark mode enabled","success");
+          }
+        }
     }
   return (
     <>
