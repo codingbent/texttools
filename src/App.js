@@ -33,27 +33,37 @@ function App() {
       document.body.classList.remove('bg-light');
       document.body.classList.remove('bg-dark');
     }
+    const removetextcolor =()=>{
+      document.body.classList.remove('text-white');
+      document.body.classList.remove('text-black');
+    }
     var togglemode = (cls)=>{
-        if(cls!=null){
+        // if(cls!=null){
           removebodyclasses();
           console.log(cls);
           document.body.classList.add('bg-'+cls);
-        }
-        else{
-          if(mode === 'dark'){
-              setMode('light');
-              document.body.style.backgroundColor='white';
-              document.body.style.color='#212529';
-              showAlert("light mode enabled","success");
+          if(cls==='dark'){
+            removetextcolor();
+            document.body.classList.add('text-white');
           }
-          if(mode === 'light'){
-              setMode('dark');
-              document.body.style.backgroundColor='#353e43';
-              document.body.style.color='white';
-              showAlert("dark mode enabled","success");
+          if(cls==='light'){
+            removetextcolor();
+            document.body.classList.add('text-black');
           }
+        // }
+          // if(mode === 'dark'){
+          //     setMode('light');
+          //     document.body.style.backgroundColor='white';
+          //     document.body.style.color='#212529';
+          //     // showAlert("light mode enabled","success");
+          // }
+          // if(mode === 'light'){
+          //     setMode('dark');
+          //     document.body.style.backgroundColor='#353e43';
+          //     document.body.style.color='white';
+          //     // showAlert("dark mode enabled","success");
+          // }
         }
-    }
   return (
     <>
     <Router>

@@ -23,8 +23,8 @@ export default function Nav(props){
                     <div className="bg-danger rounded mx-2" onClick={()=>{props.togglemode('danger')}} style={{height:'30px',width:'30px'}}></div>
                     <div className="bg-success rounded mx-2" onClick={()=>{props.togglemode('success')}} style={{height:'30px',width:'30px'}}></div>
                     <div className="bg-warning rounded mx-2" onClick={()=>{props.togglemode('warning')}} style={{height:'30px',width:'30px'}}></div>
-                    <div className="bg-light rounded mx-2" onClick={()=>{props.togglemode(null)}} style={{height:'30px',width:'30px'}}></div>
-                    <div className="bg-dark rounded mx-2" onClick={()=>{props.togglemode(null)}} style={{height:'30px',width:'30px'}}></div>
+                    <div className="bg-light rounded mx-2" onClick={()=>{props.togglemode('light')}} style={{height:'30px',width:'30px'}}></div>
+                    <div className="bg-dark rounded mx-2" onClick={()=>{props.togglemode('dark')}} style={{height:'30px',width:'30px'}}></div>
                 </div>
                 </div>
             {/* <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>
