@@ -40,7 +40,6 @@ function App() {
     var togglemode = (cls)=>{
         // if(cls!=null){
           removebodyclasses();
-          console.log(cls);
           document.body.classList.add('bg-'+cls);
           if(cls==='dark'){
             removetextcolor();
